@@ -104,6 +104,7 @@ int main()
 	system("CLS");
 	//2.show menu
 	seats_set();//重製座位表 
+	menu:
 	printf("--------------------------\n");
 	printf("| a. Availble seats      |\n");
 	printf("| b. Arrange for you   	 |\n");
@@ -117,7 +118,38 @@ int main()
 		system("CLS");
 		printf("當前座位表\n");
 		show_seats();
+		getch();
+		system("CLS");
+		goto menu;
+	}
+	else if(ch=='B'||ch=='b')
+	{
 
+	}
+	else if(ch=='C'||ch=='c')
+	{
+
+	}
+	else if(ch=='D'||ch=='d')
+	{
+		system("CLS");
+		printf("'Coutinue? (y/n)'\n");
+		worng:
+		ch=getche();
+		if(ch=='Y'||ch=='y')
+		{
+			system("CLS");
+			goto menu;//回到上面main:處 
+		}
+		else if(ch=='N'||ch=='n')
+		{
+			return 0;
+		}
+		else
+		{
+			printf("請輸入(y/n)\n");
+			goto worng;	
+		}
 	}
 
 	getch();
