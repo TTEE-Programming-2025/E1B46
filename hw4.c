@@ -74,8 +74,9 @@ int main()
 	printf("-----------------------------------\n");
 	ch=getche();//偵測使用者按鍵並回應
 	printf("\n");
-	int n=0,i=0;
+	int n=0,i=0,k;
 	struct students students[10];
+	float avg;
 	if(ch=='A'||ch=='a')
 	{
 		printf("請輸入學生人數 (5~10):");
@@ -85,6 +86,7 @@ int main()
 		printf("請輸入學生人數 (5~10):");
         scanf("%d", &n);
 		}
+		k=n;
             for (i=0;i<n;i++) {
                 printf("\n第%d位學生資料:\n",i+1);
                 printf("姓名:");
@@ -126,7 +128,15 @@ int main()
 	}
 	else if(ch=='B'||ch=='b')
 	{
-
+		printf("  姓名   學號         數學  物理  英文  平均成績\n");
+		for(i=0;i<k;i++)
+		{
+		    avg=(students[i].math+students[i].physics+students[i].english)/3;
+		    printf("%2d%s %d    %d    %d    %d    %.1f\n",i+1,students[i].name,students[i].id,students[i].math,students[i].physics,students[i].english,avg);
+	    } 
+	    getch();
+	    system("CLS");
+	    goto menu;
 	}
 	else if(ch=='C'||ch=='c')
 	{
