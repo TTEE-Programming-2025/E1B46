@@ -1,54 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-
-#define ROWS 9
-#define COLS 9
-char seats[ROWS][COLS];
- 
-void seats_set()//seats setting
-{
-	int i,j,r,c,count,rand_seat=0;
-	for(i=0;i<ROWS;i++)
-	{ 
-        for(j=0;j<COLS;j++)
-        {
-            seats[i][j] = '-';
-        }
-    }
-    while(count<10)//座位小於10時 
-    {
-    	r=rand()%ROWS;//r為隨機數/9 
-    	c=rand()%COLS;//c為隨機數/9 
-    	if (seats[r][c]!='*')
-    	{
-    		seats[r][c]='*';//填入*
-			count++; 
-		}
-	}
-}
-
-void show_seats()//show seats
-{
-	int i,j;
-	printf("  ");
-    for (i=0;i<COLS;i++)
-    {
-    	printf("%2d",i+ 1);
-	}
-    printf("\n");
-    
-	for (i=0;i< ROWS;++i)
-	{
-		printf("%2d",i+1);
-        for (j=0;j<COLS;++j)
-        {
-            printf("%2c",seats[i][j]);
-        }
-        printf("\n");
-	}
-	
-}
+#include<string.h>
  
 int main()
 {
@@ -103,24 +56,19 @@ int main()
 	getch();
 	system("CLS");
 	//2.show menu
-	seats_set();//重製座位表 
 	menu:
-	printf("--------------------------\n");
-	printf("| a. Availble seats      |\n");
-	printf("| b. Arrange for you   	 |\n");
-	printf("| c. Choose by youself	 |\n");
-	printf("| d. Exit		 |\n");
-	printf("--------------------------\n");
+	printf("-----------------------------------\n");
+	printf("| a. Enter student grades         |\n");
+	printf("| b. Display student grades       |\n");
+	printf("| c. Search for student grades	  |\n");
+	printf("| d. Grade ranking	 	  |\n");
+	printf("| e. Exit	           	  |\n");
+	printf("-----------------------------------\n");
 	ch=getche();//偵測使用者按鍵並回應
 	printf("\n");
 	if(ch=='A'||ch=='a')
 	{
-		system("CLS");
-		printf("當前座位表\n");
-		show_seats();
-		getch();
-		system("CLS");
-		goto menu;
+
 	}
 	else if(ch=='B'||ch=='b')
 	{
@@ -131,6 +79,10 @@ int main()
 
 	}
 	else if(ch=='D'||ch=='d')
+	{
+
+	}
+	else if(ch=='E'||ch=='e')
 	{
 		system("CLS");
 		printf("'Coutinue? (y/n)'\n");
@@ -155,4 +107,4 @@ int main()
 	getch();
 	return 0;
 }
-//這次複習了以前乘法表的寫法，我還順便複習了goto的寫法，不然整個程式都要更複雜了 
+
